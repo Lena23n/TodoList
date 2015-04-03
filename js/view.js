@@ -29,11 +29,20 @@ $(function(){
 		}
 	});
 
+	// todo use single tmpl for whole list
+	// form view
+	// list view (list view + product view)
+
 	var AppView = Backbone.View.extend({
 		el: $("#app"),
 
 		events: {
 			"click #add":  "createOnClickAddButton"
+		},
+
+		inputs : {
+			name : null,
+			quantity : null
 		},
 
 		initialize: function() {
@@ -43,11 +52,19 @@ $(function(){
 
 			this.listenTo(items, 'add', this.addOne);
 
+			// todo refactor this.model
 			items.fetch();
+		},
+
+		render : function () {
+			// todo use this
+			// subscribe to collection change
+			// render all subviews
 		},
 
 		addOne: function(product) {
 			var view = new ProductView({model: product});
+			// todo add item to collection
 			this.$("#item-list").append(view.render().el);
 		},
 
@@ -57,8 +74,9 @@ $(function(){
 
 		createOnClickAddButton: function() {
 			if (!this.input.val() || !this.inputQuantity.val()) return;
+			// todo show message to user
 
-			items.create({
+			items.add({
 				title: this.input.val(),
 				quantity: this.inputQuantity.val()
 			});

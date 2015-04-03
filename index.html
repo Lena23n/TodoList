@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Backbone</title>
+	<title>Backbone - Shopping List</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="app">
-	<h3>List</h3>
+	<h3>Shopping List</h3>
 
 	<div>
 		<input id="new-item" type="text" placeholder="What do you want to buy?">
@@ -31,6 +31,7 @@
 <script type="text/template" id="one-item-template">
 	<div>
 		<label>
+			<!--todo use class done here-->
 			<input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
 			<%- title %> -
 			<%- quantity %>
