@@ -16,7 +16,6 @@ $(function(){
 
 		render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
-			this.$el.toggleClass('done', this.model.get('done'));
 			return this;
 		},
 
@@ -47,10 +46,11 @@ $(function(){
 
 		initialize: function() {
 
-			this.input = this.$("#new-item");
+			this.inputs = this.$("#new-item");
 			this.inputQuantity = this.$("#count");
 
 			this.listenTo(items, 'add', this.addOne);
+			//this.listenTo(this.model, )
 
 			// todo refactor this.model
 			items.fetch();
@@ -73,15 +73,15 @@ $(function(){
 		//},
 
 		createOnClickAddButton: function() {
-			if (!this.input.val() || !this.inputQuantity.val()) return;
+			if (!this.inputs.val() || !this.inputQuantity.val()) return;
 			// todo show message to user
 
 			items.add({
-				title: this.input.val(),
+				title: this.inputs.val(),
 				quantity: this.inputQuantity.val()
 			});
 
-			this.input.val('');
+			this.inputs.val('');
 			this.inputQuantity.val('');
 		}
 

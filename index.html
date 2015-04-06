@@ -10,36 +10,39 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
 	<script src="libs/backbone.localStorage.js"></script>
 	<script src="js/model.js"></script>
-	<script src="js/view.js"></script>
+	<script src="js/view2.js"></script>
+	<script src="js/index.js"></script>
 </head>
 <body>
 <div id="app">
 	<h3>Shopping List</h3>
 
-	<div>
+	<div id="addFormContainer">
 		<input id="new-item" type="text" placeholder="What do you want to buy?">
 		<input id="count" type="text" placeholder="Quantity?">
 		<div id="add">Add</div>
 	</div>
 
-
 	<ol id="item-list"></ol>
+
 </div>
 
 
-
 <script type="text/template" id="one-item-template">
-	<div>
-		<label>
+		<% _.each(this.model, function(item) { %>
+		<li>
+			<label <%= done ? 'class="done"' : '' %>>
 			<!--todo use class done here-->
 			<input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-			<%- title %> -
-			<%- quantity %>
-		</label>
-		<a class="destroy">X</a>
-	</div>
-</script>
+			<%- item.title %> -
+			<%- item.quantity %>
+			</label>
 
+			<a class="destroy">X</a>
+		</li>
+		<% }) %>
+
+</script>
 
 
 </body>

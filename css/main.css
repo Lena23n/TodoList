@@ -65,7 +65,7 @@ ol {
 	margin: 20px 0 0;
 }
 
-ol li:before {
+ol li label:before {
 	content: counter(li);
 	counter-increment: li;
 	position: absolute;
@@ -81,11 +81,8 @@ ol li:before {
 	border: 2px solid #fff;
 }
 
-li {
-	position: relative;
-}
 
-li > div {
+li {
 	transition: all 0.25s;
 	border-bottom: 1px solid rgb(66, 117, 134);
 	margin-right: 24px;
@@ -94,12 +91,12 @@ li > div {
 	color: rgb(66, 117, 134);
 }
 
-li:hover > div {
+li:hover {
 	text-shadow: 0 1px 0 rgba(0,0,0,0.6);
 	color: #fff;
 }
 
-li:hover:before {
+li label:hover:before {
 	text-shadow: 0 1px 0 rgba(0,0,0,0.6);
 	color: #fff;
 }
@@ -110,17 +107,18 @@ li label {
 	display: inline-block;
 	padding: 10px 0;
 	vertical-align: top;
+	position: relative;
 }
 
 .toggle {
 	display: none;
 }
 
-li.done label {
+li label.done {
 	text-decoration: line-through;
 }
 
-li.done:before {
+li label.done:before {
 	border: 2px solid transparent;
 }
 

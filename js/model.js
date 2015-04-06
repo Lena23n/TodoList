@@ -18,4 +18,4 @@ var ItemList = Backbone.Collection.extend({
 	localStorage: new Backbone.LocalStorage("items-backbone")
 });
 
-var items = new ItemList;
+//var items = new ItemList;
