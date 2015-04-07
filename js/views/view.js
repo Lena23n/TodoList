@@ -30,7 +30,7 @@ $(function(){
 
 	// todo use single tmpl for whole list
 	// form view
-	// list view (list view + product view)
+	// list view (list view + productView view)
 
 	var AppView = Backbone.View.extend({
 		el: $("#app"),

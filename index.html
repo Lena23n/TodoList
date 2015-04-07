@@ -4,14 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Backbone - Shopping List</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
-
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-	<script src="libs/backbone.localStorage.js"></script>
-	<script src="js/model.js"></script>
-	<script src="js/view2.js"></script>
-	<script src="js/index.js"></script>
 </head>
 <body>
 <div id="app">
@@ -29,13 +21,13 @@
 
 
 <script type="text/template" id="one-item-template">
-		<% _.each(this.model, function(item) { %>
+		<% _.each(model, function(item) { %>
 		<li>
-			<label <%= done ? 'class="done"' : '' %>>
+			<label <%= item.done ? 'class="done"' : '' %>>
 			<!--todo use class done here-->
-			<input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-			<%- item.title %> -
-			<%- item.quantity %>
+			<input class="toggle" type="checkbox" <%= item.done ? 'checked="checked"' : '' %> />
+			<%= item.title %> -
+			<%= item.quantity %>
 			</label>
 
 			<a class="destroy">X</a>
@@ -44,6 +36,14 @@
 
 </script>
 
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+<script src="js/libs/backbone.localStorage.js"></script>
+<script src="js/model/model.js"></script>
+<script src="js/collection/items.js"></script>
+<script src="js/views/list.js"></script>
+<script src="js/views/form.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

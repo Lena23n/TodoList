@@ -11,11 +11,3 @@ var Item = Backbone.Model.extend ({
 	}
 
 });
-
-//Collection
-var ItemList = Backbone.Collection.extend({
-	model: Item,
-	localStorage: new Backbone.LocalStorage("items-backbone")
-});
-
-//var items = new ItemList;
